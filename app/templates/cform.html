@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+{% block main %}
+<div class="container" 
+style =  "border: solid 2px;
+          background-color: #A9F5F2;
+          font-size: 120%;
+          padding:10px;
+          width:550px;
+          margin:20px;">
+
+<h2 style='font-family: serif; font-weight: bold'>Contact Form</h2>  
+  
+{% if title %}
+file {{title}} uploaded! 
+{% endif %}
+
+<div class="container">
+ <form action="{{ url_for('add_entry') }}" method="post" enctype="multipart/form-data" class="add-entry">      
+ <dl>
+<dt>Profile Picture:
+<dd><input type="file" name="file">        
+<br>
+  
+<form action="{{ url_for('cform') }}", method="post">
+            <div>
+            First Name: {{ form.firstname }}
+            </div>
+            <br>
+            <div>
+            Last Name: {{ form.lastname }}
+           </div>
+            <br>
+            <div>
+            Age: {{ form.age }}
+            </div>
+            <br>
+            <div>
+            Sex: {{ form.sex }}
+            </div>
+            <br>
+            
+    <input type="submit" />
+   {{ form.csrf_token }}         
+  </form>
+</div>
+</div>
+{% endblock %}
