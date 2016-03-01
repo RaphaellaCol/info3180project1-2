@@ -3,6 +3,9 @@
 # ----------------------
 flask
 Flask-WTF
+Flask-sqlalchemy
+psycopg2
+
 
 # ----------------------
 # Testing

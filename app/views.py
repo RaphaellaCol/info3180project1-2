@@ -60,22 +60,22 @@ def add_entry():
 
 @app.route('/profile/')
 def profile(firstname,lastname,age,sex):
-    """Render the website's profile page."""
+    """Render the website's profile page to add profile."""
     currenttime = timeinfo()
+def timeinfo():
     return render_template('profile.html',time=currenttime)
     
-def timeinfo():
     return (time.strftime("%a %d / %m/ %Y"))
     
-# @app.route('/profiles/')
-# def profiles():
-#     """Render the website's profile page."""
-#     return render_template('profile.html')
+@app.route('/profiles/', method=["GET"])
+def profiles():
+    """Render the website's profile page to view profile list."""
+    return render_template('profiles.html')
     
-# @app.route('/profile/<userid>', methods=["GET", "POST"])
-# def prof():
-#     """Render the website's about page."""
-#     return render_template('about.html')    
+@app.route('/profile/<userid>', methods=["GET", "POST"])
+def prof():
+    """Render the website's profile page to view profile."""
+    return render_template('userprofile.html')    
     
     
 ###
