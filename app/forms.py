@@ -5,7 +5,7 @@ from wtforms.validators import Required
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 class ContactForm(Form):
-    __tablename__ = contact
+   
     firstname = TextField('Firstname', validators=[Required()])
     lastname = TextField('Lastname', validators=[Required()])
     age = TextField('Age', validators=[Required()])

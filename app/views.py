@@ -59,15 +59,15 @@ def add_entry():
     return render_template("cform.html",title=title)
 
 @app.route('/profile/')
-def profile(firstname,lastname,age,sex):
+def profile():
     """Render the website's profile page to add profile."""
     currenttime = timeinfo()
-def timeinfo():
     return render_template('profile.html',time=currenttime)
     
+def timeinfo():
     return (time.strftime("%a %d / %m/ %Y"))
     
-@app.route('/profiles/', method=["GET"])
+@app.route('/profiles/', methods=["GET"])
 def profiles():
     """Render the website's profile page to view profile list."""
     return render_template('profiles.html')
