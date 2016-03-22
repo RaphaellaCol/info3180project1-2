@@ -50,10 +50,9 @@ def add_entry():
 @app.route('/profile/', methods=["GET","POST"])
 def profile():
     """Render the website's profile page to add profile."""
-    form = ContactForm(request.form)
+    form = ContactForm()
 
-    if request.method == "POST" and form.validate_on_submit():
-        
+    if request.method == "POST" and form.validate_on_submit():    
         firstname= request.form['firstname']
         lastname= request.form['lastname']
         age= request.form['age']
@@ -62,8 +61,7 @@ def profile():
         newprof = User(firstname=firstname, lastname=lastname, age=age, sex=sex, currenttime = currenttime)
         db.session.add(newprof)
         db.session.commit()
-        print "yeah"
-        return redirect(url_for('profiles'))
+    return render_template('cform.html', form)
     return render_template('cform.html', form=form)
     
 def timeinfo():

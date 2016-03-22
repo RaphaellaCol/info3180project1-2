@@ -10,6 +10,5 @@ class ContactForm(Form):
     lastname = TextField('Lastname', validators=[Required()])
     age = TextField('Age', validators=[Required()])
     sex = SelectField('Sex', choices = [('m', 'Male'), ('f', 'Female')])
-    img = FileField('image', validators=[FileRequired(), FileAllowed(['jpg', 'png'], 
-    'Images only!')])
+    img = FileField('image', validators=[])
     
