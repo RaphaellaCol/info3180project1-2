@@ -8,13 +8,20 @@
 {% block main %}
 <style>
     
+    body{
+        
+        background-color: #ffffff;
+        
+        
+    }
     .cont{border: solid 2px;
-          background-color: #BE81F7; 
+          background-color: #ffffff; 
           font-weight: bold;
           font-size: 100%;
-          padding:10px;
+          padding:5px;
           width:550px;
           margin:20px;
+          
     }
     p{
         font-size:20px;
@@ -32,47 +39,48 @@
     
     #info{
         border: solid 2px;
-        background-color: #BE81F7;
+        background-color: #b3d9ff;
         font-weight: bold;
         font-size: 100%;
-        padding:10px;
+        padding:5px;
         width:500px;
         margin:20px;
         
     }
     #date{
         border: solid 2px;
-        background-color: #BE81F7;
+        background-color: #b3d9ff;
         font-weight: bold;
         font-size: 100%;
-        padding:10px;
+        padding:5px;
         width:500px;
         margin:20px;
    
     }
     #name{
          border: solid 2px;
-        background-color: #BE81F7;
+        background-color: #b3d9ff;
         font-weight: bold;
         font-size: 100%;
-        padding:10px;
+        padding:5px;
         width:500px;
         margin:20px;
+        text-transform: capitalize;
     }
     #details{
          border: solid 2px;
          width: 50%;
          margin-left: 40%;
-         background-color: #BE81F7;
+         background-color:  #e6f2ff;
          font-weight: bold;
          font-size: 100%;
-         padding:10px;
+         padding:5px;
     }
     
     #content{
         width: 60%;
         border: solid 2px;
-        background-color: #BE81F7;
+        background-color: #b3d9ff;
         font-weight: bold;
         font-size: 100%;
         margin:20px;
@@ -80,22 +88,20 @@
 </style>
 
 <div id='content'>
-<div id='img2'>
+<div id='img2'><img src={{ url_for('static', filename=profile.image) }}><br>
 </div>
 <div id='details' class='cont'>
     <div id='name' class='cont'>
-        <h2>User Profile </h2>
+        <h2>{{profile.firstname}} {{profile.lastname}} </h2>
     </div>
-    <br>
     <br>
     
     <div id='date' class='cont'>
-        <p>Today is: {{profile.currenttime}}</p><br>
+        <p>Profile added on: {{profile.currenttime}}</p>
     </div>
     <br>
     <div id= 'info' class='cont'> 
         <p>
-           Username: {{profile.firstname}} {{profile.lastname}}<br>
            Age: {{profile.age}}<br>
            Sex: {{profile.sex}}
         </p>

@@ -7,7 +7,7 @@ db = SQLAlchemy(app)
 from models import *
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rdtwxsjehwsmjd:9lZQ_CSyBm6Me2bh6MrUHx0Lcd@ec2-107-21-229-87.compute-1.amazonaws.com:5432/db82305n0ob52'
-
+#db.drop_all()
 db.create_all()
 
 db.session.commit()

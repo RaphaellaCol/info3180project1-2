@@ -12,6 +12,7 @@ import time
 import os
 from .forms import ContactForm
 from app.models import User
+from werkzeug import secure_filename
 
 app.secret_key = "Info3180"
 
@@ -59,7 +60,12 @@ def profile():
         age= request.form['age']
         sex= request.form['sex']
         currenttime = timeinfo()
-        newprof = User(firstname=firstname, lastname=lastname, age=age, sex=sex, currenttime = currenttime)
+        upfile = request.files['img']
+        if upfile:
+            path= "uploads/" + secure_filename(upfile.filename)
+            file= os.path.join(os.getcwd() + '/app/static/' + path)
+            upfile.save(file)
+        newprof = User(firstname=firstname, lastname=lastname, age=age, sex=sex, currenttime = currenttime, image=path)
         db.session.add(newprof)
         db.session.commit()
         print "yeah"

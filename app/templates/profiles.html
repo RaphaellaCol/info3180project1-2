@@ -7,12 +7,46 @@
 
 {% block main %}
 
+<style>
+
+    body{
+        
+        background-color: #b3d9ff;
+         
+    }
+   
+
+    #img2{
+        
+        
+    }
+    
+    h1{
+        text-align: center;
+        text-decoration:underline;
+    }
+    
+    #prof{
+        font-size:25px;
+        text-align:center;
+        padding: 2px;
+        
+    }
+    
+    
+    
+</style>
+
+
+
+
+
 
 
 <div>
     <h1>Profiles</h1>
     {% for profile in profiles %}
-        <div><a href="/profile/{{ profile.id}}"> {{ profile.firstname }} {{ profile.lastname }} </a></div>
+        <div id="prof"><a href="/profile/{{ profile.id}}"> {{ profile.firstname }} {{ profile.lastname }} </a></div>
        <div id='img2'><img src="{{ profile.img }}"> </div>
     {% endfor %}
     
