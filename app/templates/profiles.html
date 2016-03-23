@@ -7,10 +7,13 @@
 
 {% block main %}
 
+
+
 <div>
     <h1>Profiles</h1>
     {% for profile in profiles %}
-        <div> {{ profile.firstname }}</div>
+        <div><a href="/profile/{{ profile.id}}"> {{ profile.firstname }} {{ profile.lastname }} </a></div>
+       <div id='img2'><img src="{{ profile.img }}"> </div>
     {% endfor %}
     
 </div>

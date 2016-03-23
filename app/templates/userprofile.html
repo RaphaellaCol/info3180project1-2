@@ -6,4 +6,103 @@
 
 
 {% block main %}
+<style>
+    
+    .cont{border: solid 2px;
+          background-color: #BE81F7; 
+          font-weight: bold;
+          font-size: 100%;
+          padding:10px;
+          width:550px;
+          margin:20px;
+    }
+    p{
+        font-size:20px;
+    }
+    #img2{
+        width:40%;
+        float:left;
+        padding: 0;
+    }
+    
+    img{
+        margin: 50px 20%;
+        width:60%;
+    }
+    
+    #info{
+        border: solid 2px;
+        background-color: #BE81F7;
+        font-weight: bold;
+        font-size: 100%;
+        padding:10px;
+        width:500px;
+        margin:20px;
+        
+    }
+    #date{
+        border: solid 2px;
+        background-color: #BE81F7;
+        font-weight: bold;
+        font-size: 100%;
+        padding:10px;
+        width:500px;
+        margin:20px;
+   
+    }
+    #name{
+         border: solid 2px;
+        background-color: #BE81F7;
+        font-weight: bold;
+        font-size: 100%;
+        padding:10px;
+        width:500px;
+        margin:20px;
+    }
+    #details{
+         border: solid 2px;
+         width: 50%;
+         margin-left: 40%;
+         background-color: #BE81F7;
+         font-weight: bold;
+         font-size: 100%;
+         padding:10px;
+    }
+    
+    #content{
+        width: 60%;
+        border: solid 2px;
+        background-color: #BE81F7;
+        font-weight: bold;
+        font-size: 100%;
+        margin:20px;
+    }
+</style>
+
+<div id='content'>
+<div id='img2'>
+</div>
+<div id='details' class='cont'>
+    <div id='name' class='cont'>
+        <h2>User Profile </h2>
+    </div>
+    <br>
+    <br>
+    
+    <div id='date' class='cont'>
+        <p>Today is: {{profile.currenttime}}</p><br>
+    </div>
+    <br>
+    <div id= 'info' class='cont'> 
+        <p>
+           Username: {{profile.firstname}} {{profile.lastname}}<br>
+           Age: {{profile.age}}<br>
+           Sex: {{profile.sex}}
+        </p>
+    </div>
+</div>
+
+</div>
+
+
 {% endblock %}

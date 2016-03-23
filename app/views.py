@@ -33,7 +33,7 @@ def about():
 def files():
     """files view"""
     #if session['logged_in'] == True:
-    return render_template("cform.html")
+    return render_template("profile.html")
     #return redirect(url_for('login'))
 
 @app.route('/add', methods=['POST'])
@@ -45,7 +45,7 @@ def add_entry():
     file = request.files['file']
     filename = file.filename
     file.save(os.path.join(rootdir, filename))
-    return render_template("cform.html",title=title)
+    return render_template("profile.html",title=title)
 
 @app.route('/profile/', methods=["GET","POST"])
 def profile():
@@ -53,7 +53,7 @@ def profile():
     form = ContactForm(request.form)
 
     if request.method == "POST" and form.validate_on_submit():
-        
+        print "oh yeah"
         firstname= request.form['firstname']
         lastname= request.form['lastname']
         age= request.form['age']
@@ -64,7 +64,7 @@ def profile():
         db.session.commit()
         print "yeah"
         return redirect(url_for('profiles'))
-    return render_template('cform.html', form=form)
+    return render_template('profile.html', form=form)
     
 def timeinfo():
     return time.strftime("%a %d / %m/ %Y")
@@ -77,10 +77,15 @@ def profiles():
         print "POST"
     return render_template('profiles.html', profiles=profiles)
     
-@app.route('/profile/<userid>', methods=["GET", "POST"])
+@app.route('/profile/<int:id>', methods=["GET", "POST"])
 def prof(id):
     """Render the website's profile page to view profile."""
-    profile = User.query.get(id).first()
+    profile = User.query.get(id)
+    #if request.method == "GET":
+        # retrieve the user information by 
+        # use the name of the image and combine it with the path to the folder where images are stored
+        # use the combined path to the image to return the image path along with the other user data
+        # and display this in a template
     return render_template('userprofile.html', profile=profile)    
     
     
